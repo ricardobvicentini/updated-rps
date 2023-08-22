@@ -1,0 +1,97 @@
+const rockBtn = document.querySelector(".rock-btn");
+const paperBtn = document.querySelector(".paper-btn");
+const scissorsBtn = document.querySelector(".scissors-btn");
+const resultText = document.querySelector(".js-result");
+const resetBtn = document.querySelector(".reset-btn");
+const score = {
+  wins: 0,
+  losses: 0,
+  ties: 0,
+};
+
+updateScore();
+
+function pickComputerMove() {
+  const randomNumber = Math.random();
+
+  let computerMove = '';
+
+  if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    computerMove = "rock";
+  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+    computerMove = "paper";
+  } else {
+    computerMove = "scissors";
+  }
+
+  return computerMove;
+}
+
+function playGame(playerMove) {
+  const computerMove = pickComputerMove();
+  let result = "";
+
+  if (playerMove === "rock") {
+    if (computerMove === "rock") {
+      result = "Tie.";
+    } else if (computerMove === "paper") {
+      result = "You lose! Computer wins!";
+    } else {
+      result = "Computer loses! You win!";
+    }
+  } else if (playerMove === "paper") {
+    if (computerMove === "rock") {
+      result = "Computer loses! You win!";
+    } else if (computerMove === "paper") {
+      result = "Tie";
+    } else {
+      result = "You lose! Computer wins!";
+    }
+  } else {
+    if (computerMove === "rock") {
+      result = "You lose! Computer wins!";
+    } else if (computerMove === "paper") {
+      result = "Computer loses! You win!";
+    } else {
+      result = "Tie!";
+    }
+  }
+
+  if (result === "Computer loses! You win!") {
+    score.wins += 1;
+  } else if (result === "You lose! Computer wins!") {
+    score.losses += 1;
+  } else {
+    score.ties += 1;
+  }
+
+  resultText.innerHTML = `You picked <img src="images/${playerMove}-emoji.png" alt="Rock-fist emoji" class="move-icon"> Computer picked <img src="images/${computerMove}-emoji.png" alt="Rock-fist emoji" class="move-icon"><br> ${result}`;
+
+  updateScore();
+
+  return playerMove;
+};
+
+function updateScore() {
+  document.querySelector(".js-score").innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+};
+
+rockBtn.addEventListener("click", () => {
+  playGame("rock");
+});
+
+paperBtn.addEventListener("click", () => {
+  playGame("paper");
+});
+
+scissorsBtn.addEventListener("click", () => {
+  playGame("scissors");
+});
+
+resetBtn.addEventListener("click", () => {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  /* updateScore(); */
+  location.reload();
+});
