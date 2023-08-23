@@ -45,12 +45,18 @@ body {
 }
 
 .move-btn {
-  border: 1px solid red;
+  position: relative;
+  border: .4em solid rgb(198, 199, 199);
   background-color: transparent;
-  border: 5px solid aliceblue;
   border-radius: 50%;
   padding: clamp(1.5rem, 2.5vw, 5rem);
   cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+
+.move-btn:hover {
+  border: .4em solid rgb(250, 192, 54);
+  scale: 1.1;
 }
 
 .result,
