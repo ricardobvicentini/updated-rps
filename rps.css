@@ -13,7 +13,6 @@ html {
 }
 
 body {
-  border: 1px solid red;
   background-image: linear-gradient(to bottom, #3d3d3d,  #242020);
   color: aliceblue;
   width: 100vw;
@@ -26,7 +25,6 @@ body {
 }
 
 .title {
-  border: 1px solid red;
   font-size: clamp(2.5rem, 3.5vw, 8rem);
   text-transform: uppercase;
   text-align: center;
@@ -35,7 +33,6 @@ body {
 }
 
 .container {
-  border: 1px solid red;
   display: grid;
   gap: clamp(1.5rem, 2.5vw, 5rem);
 }
@@ -61,7 +58,6 @@ body {
 
 .result,
 .score {
-  border: 1px solid red;
   font-size: clamp(1.5rem, 2.5vw, 4rem);
   text-align: center;
 }
@@ -75,6 +71,13 @@ body {
   padding-inline: min(2.5rem, 6rem);
   border: 3px inset;
   border-radius: 20px;
+  transition: background-color 200ms ease-in-out, 
+  border 200ms ease-in-out;
+}
+
+.reset-btn:hover {
+  border: 3px outset;
+  background-color:  rgb(224, 224, 224);
 }
 
 @media (orientation: landscape) {
