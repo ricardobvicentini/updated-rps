@@ -62,20 +62,24 @@ body {
   text-align: center;
 }
 
-.reset-btn {
-  background-color: rgb(198, 199, 199);
-  font-size: clamp(1.5rem, 2.5vw, 4rem);
+.reset-btn,
+.auto-btn {
+  background-color: rgb(199, 199, 199);
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-weight: 700;
   text-transform: uppercase;
+  margin-inline: 1vw;
   padding-block: min(1.5rem, 4rem);
   padding-inline: min(2.5rem, 6rem);
   border: 3px inset;
   border-radius: 20px;
+  cursor: pointer;
   transition: background-color 200ms ease-in-out, 
   border 200ms ease-in-out;
 }
 
-.reset-btn:hover {
+.reset-btn:hover,
+.auto-btn:hover {
   border: 3px outset;
   background-color:  rgb(224, 224, 224);
 }

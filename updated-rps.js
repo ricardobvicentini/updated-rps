@@ -3,6 +3,7 @@ const paperBtn = document.querySelector(".paper-btn");
 const scissorsBtn = document.querySelector(".scissors-btn");
 const resultText = document.querySelector(".js-result");
 const resetBtn = document.querySelector(".reset-btn");
+const autoBtn = document.querySelector(".auto-btn");
 const score = {
   wins: 0,
   losses: 0,
@@ -10,6 +11,22 @@ const score = {
 };
 
 updateScore();
+
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(function() {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+    }, 2000);
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+  }
+};
 
 function pickComputerMove() {
   const randomNumber = Math.random();
@@ -95,3 +112,15 @@ resetBtn.addEventListener("click", () => {
   /* updateScore(); */
   location.reload();
 });
+
+autoBtn.addEventListener('click', () => {
+  autoPlay();
+  if (autoBtn.innerHTML === 'Auto Play') {
+    autoBtn.innerHTML = 'Stop Auto Play';
+    autoBtn.style.backgroundColor = 'orangered';
+  } else {
+    autoBtn.innerHTML = 'Auto Play';
+    autoBtn.style.backgroundColor = "rgb(199, 199, 199)";
+  };
+});
+
