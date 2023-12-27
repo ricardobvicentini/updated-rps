@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-*, 
+*,
 *::before,
 *::after {
   margin: 0;
@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-image: linear-gradient(to bottom, #3d3d3d,  #242020);
+  background-image: linear-gradient(to bottom, #3d3d3d, #242020);
   color: aliceblue;
   width: 100vw;
   height: 100vh;
@@ -43,7 +43,7 @@ body {
 
 .move-btn {
   position: relative;
-  border: .4em solid rgb(198, 199, 199);
+  border: 0.4em solid rgb(198, 199, 199);
   background-color: transparent;
   border-radius: 50%;
   padding: clamp(1.5rem, 2.5vw, 5rem);
@@ -52,7 +52,7 @@ body {
 }
 
 .move-btn:hover {
-  border: .4em solid rgb(250, 192, 54);
+  border: 0.4em solid rgb(250, 192, 54);
   scale: 1.1;
 }
 
@@ -74,14 +74,13 @@ body {
   border: 3px inset;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 200ms ease-in-out, 
-  border 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out, border 200ms ease-in-out;
 }
 
 .reset-btn:hover,
 .auto-btn:hover {
   border: 3px outset;
-  background-color:  rgb(224, 224, 224);
+  background-color: rgb(224, 224, 224);
 }
 
 @media (orientation: landscape) {
