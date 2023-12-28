@@ -1,2 +1,2 @@
 # updated-rps
- Updated rock, paper, scissors
+ Pedra, Papel, Tesoura Atualizado / Updated rock, paper, scissors
